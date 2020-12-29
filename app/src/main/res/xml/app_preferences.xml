@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:entries="@array/title_name"
+        android:entryValues="@array/values_int"
+        android:icon="@drawable/ic_baseline_format_size_24"
+        android:key="text_size"
+        android:title="Размер текста"
+        app:defaultValue="20" />
+
+</PreferenceScreen>
