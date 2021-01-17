@@ -6,7 +6,10 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     android:layout_margin="3dp"
-    android:scrollbars="vertical">
+    android:scrollbars="vertical"
+    android:stateListAnimator="@anim/animation"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,13 +23,23 @@
             android:layout_centerVertical="true"
             android:src="@drawable/ic_baseline_broken_image_24"/>
 
+        <ImageView
+            android:id="@+id/progressThemeImageView"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:scaleType="center"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/themeImageView"
+            android:layout_margin="4dp"/>
+
+
         <TextView
             android:id="@+id/themeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Theme"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="19sp"
             android:textColor="@android:color/black"
             android:layout_toRightOf="@+id/themeImageView"
             android:layout_marginLeft="7dp"/>
@@ -38,7 +51,7 @@
             android:text="Main Verse"
             android:textStyle="italic"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_toRightOf="@+id/themeImageView"
             android:layout_below="@+id/themeTextView"
             android:layout_marginLeft="7dp"/>

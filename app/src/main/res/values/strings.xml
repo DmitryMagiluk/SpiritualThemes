@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Духовное Общение</string>
+    <string name="app_name" translatable="false">Духовные темы</string>
+    <string name="title_main_action_bar" translatable="false">Темы для духовного общения</string>
 </resources>

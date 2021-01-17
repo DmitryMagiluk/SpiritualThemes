@@ -5,8 +5,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import static com.example.spiritualommunication.MainActivity.THEMES_PROGRESS;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -28,7 +31,9 @@ public class SettingsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == android.R.id.home){
-            NavUtils.navigateUpFromSameTask(this);
+            //NavUtils.navigateUpFromSameTask(this);
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

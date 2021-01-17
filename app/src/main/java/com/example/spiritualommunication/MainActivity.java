@@ -1,14 +1,18 @@
 package com.example.spiritualommunication;
 
+import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,9 +22,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-import Data.ThemeAppDatabase;
-import Model.Theme;
-
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -29,19 +30,30 @@ public class MainActivity extends AppCompatActivity {
 //    ThemeAppDatabase themeAppDatabase;
     ArrayList<SpiritualCommunicationItem> themes = new ArrayList<>();
 
-    final static int n = 46;
+    //final static int n = 46;
+
+    public final static String THEMES_PROGRESS = "themes_progress";
+    public final static String THEME_PROGRESS = "theme_progress ";
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.notifyDataSetChanged();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle(R.string.title_main_action_bar);
+
         ArrayList<SpiritualCommunicationItem> spiritualCommunicationItems = new ArrayList<>();
         fillArray(spiritualCommunicationItems);
 
 
         themes.addAll(spiritualCommunicationItems);
-
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -56,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
-
 
 //        FloatingActionButton floatingActionButton =
 //                (FloatingActionButton) findViewById(R.id.floatingActionButton);
@@ -166,5 +177,7 @@ public class MainActivity extends AppCompatActivity {
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_44, Utils.THEME_44, Utils.VERSE_44, Utils.MAIN_TEXT_44));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_45, Utils.THEME_45, Utils.VERSE_45, Utils.MAIN_TEXT_45));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_46, Utils.THEME_46, Utils.VERSE_46, Utils.MAIN_TEXT_46));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_47, Utils.THEME_47, Utils.VERSE_47, Utils.MAIN_TEXT_47));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_48, Utils.THEME_48, Utils.VERSE_48, Utils.MAIN_TEXT_48));
     }
 }

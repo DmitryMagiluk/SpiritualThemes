@@ -1,48 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutActivity"
-    android:orientation="vertical"
-    android:background="#E3D8D8"
-    android:padding="8dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text='Здесь будет информация о приложении \n\n
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bilbo_swash_caps"
+            android:gravity="center"
+            android:text="Название приложения"
+            android:textColor="@color/colorAboutApp"
+            android:paddingBottom="4dp"
+            android:textSize="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/customborder"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Версия приложения"
+                android:textColor="@color/colorAboutApp"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/appVersion"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1.1"
+                android:textColor="@color/colorAboutApp"
+
+                android:textSize="20dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textViewHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:autoLink="email"
+            android:background="@drawable/customborder"
+            android:text='Данное приложение, это вариант духовного служения людям, представленный в виде духовных тем для общения, с целью:\n
+- духовного роста христиан (включая попечение, наставничество и ученичество),\n
+- духовной поддержки,\n
+- и духовного братского общения в простоте на равных, где инициатор занимает больше роль друга, чем профессионала (эксперта, наставника, учителя).\n\n
+Духовные темы состоят из мест Библии и вопросов.\n
+Цели вопросов:\n
+- направить на размышление над Словом Божьим\n
+- его практическому применению в жизни,\n
+- и обратиться к сердцу, а не к знаниям человека.\n\n
+На вопросы рекомендуется отвечать обоим, чтобы развивать дружеские и доверительные отношения в форме диалога (а не монолога), и предотвратить как построения барьеров в общении, так и превозношения (учитель-ученик, начальник-подчиненный).\n\n
+
+Вначале, выберите одну из тем, прочитайте первый стих внутри темы, и затем по очереди отвечайте на следующие за стихом вопросы. Далее переходите к следующему стиху и вопросам.
+В конце каждой темы предложен стих для запоминания, чтобы тема и общение остались в памяти.
+
+Благословений вам!'
+            android:textColor="@color/colorAboutApp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:autoLink="email"
+            android:text='
 Если вы обнаружили ошибку в нашем приложении или хотите оставить
-о нем отзыв, воспользуйтесь кнопкой "Отправить отзыв или сообщить об ошибке".
+о нем отзыв/пожелание, воспользуйтесь кнопкой "Написать разработчикам".
 При описании технических проблем укажите как можно больше деталей.\n
-Ваше мнение поможет сделать приложение лучше.'
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+Почта разработчиков: themes-spiritual@mail.ru
+\n Просим вас указывать ТЕМУ сообщения в письме.'
+            android:textColor="@color/colorAboutApp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/customborder"
+            android:layout_marginBottom="7dp"
+            android:textIsSelectable="true"/>
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:background="#4B84F6"
-        android:clickable="true"
-        android:gravity="center"
-        android:onClick="sendEmail"
-        android:text="Отправить отзыв или сообщить об ошибке"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="sendEmail"
+                android:text="Написать разработчикам"
+                android:textColor="@color/button_pressed_text_color"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/button_pressed_drawable"
+                android:drawableRight="@drawable/button_pressed_icon_change">
+            </Button>
 
-    </Button>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>

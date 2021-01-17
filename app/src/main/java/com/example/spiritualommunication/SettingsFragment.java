@@ -1,17 +1,28 @@
 package com.example.spiritualommunication;
 
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.spiritualommunication.MainActivity.THEMES_PROGRESS;
+
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener{
+
+    Preference progressPreference;
+
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.app_preferences);
@@ -27,6 +38,46 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             //Log.d("value","" + value);
             setPreferenceLabel(preference,value);
         }
+
+        progressPreference = findPreference("progress_reset");
+
+        progressPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+
+                LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getContext());
+                View view1 = layoutInflaterAndroid.inflate(R.layout.layout_question, null);
+                AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(getContext());
+                alertDialogBuilderUserInput.setView(view1);
+
+                alertDialogBuilderUserInput
+                        .setCancelable(false)
+                        .setPositiveButton("Да" , new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogBox, int id) {
+
+                            }
+                        })
+                        .setNegativeButton("Нет",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialogBox, int id) {
+
+                                    }
+                                });
+                final AlertDialog alertDialog = alertDialogBuilderUserInput.create();
+                alertDialog.show();
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getContext(), "Прогресс сброшен", Toast.LENGTH_LONG).show();
+                        SharedPreferences sharedPreferences;
+                        sharedPreferences = getContext().getSharedPreferences(THEMES_PROGRESS,MODE_PRIVATE);
+                        sharedPreferences.edit().clear().commit();
+                        alertDialog.dismiss();
+                    }
+                });
+                return false;
+            }
+        });
     }
 
     private void setPreferenceLabel (Preference preference, String value){ // устанавливаем имя выбранной настройки в ListPreference под названием ListPreference
@@ -40,6 +91,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                 // Entries это массив названий (от ОЧЕНЬ МЕЛКИЙ до ОЧЕНЬ БОЛЬШОЙ)
             }
         }
+
     }
 
     @Override

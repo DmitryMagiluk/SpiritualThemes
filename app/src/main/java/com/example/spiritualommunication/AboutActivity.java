@@ -5,16 +5,25 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import static com.example.spiritualommunication.MainActivity.THEMES_PROGRESS;
+import static com.example.spiritualommunication.MainActivity.THEME_PROGRESS;
 
 public class AboutActivity extends AppCompatActivity {
 
-    String[] address = {"magiluk007@gmail.com"};
+    String[] address = {"themes-spiritual@mail.ru"};
+    TextView appNameTextView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,9 @@ public class AboutActivity extends AppCompatActivity {
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        appNameTextView = findViewById(R.id.appName);
+        appNameTextView.setText(R.string.title_main_action_bar);
     }
 
     @Override

@@ -10,37 +10,62 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Настройки">
-
+        <activity
+            android:name=".AddReadNote"
+            android:label="Заметки"
+            android:parentActivityName=".TextCommunication">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-
+                android:value=".TextCommunication">
             </meta-data>
-
         </activity>
-        <activity android:name=".AboutActivity"
-            android:label="О приложениии"
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Настройки"
             android:parentActivityName=".MainActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity">
-
             </meta-data>
-
         </activity>
 
-        <activity android:name=".TextCommunication" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".AboutActivity"
+            android:label="О приложении"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
+
+        <activity
+            android:name=".TextCommunication"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
             android:launchMode="singleTop">
+        </activity>
+
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
