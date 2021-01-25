@@ -3,6 +3,7 @@ package com.example.spiritualommunication;
 import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -22,6 +23,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import static com.example.spiritualommunication.ProfilesActivity.PROFILE_THEMES_PROGRESS;
+
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -31,10 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<SpiritualCommunicationItem> themes = new ArrayList<>();
 
     //final static int n = 46;
-
-    public final static String THEMES_PROGRESS = "themes_progress";
-    public final static String THEME_PROGRESS = "theme_progress ";
-
+    public Integer profileIdForSharedPref;
 
     @Override
     protected void onStart() {
@@ -44,8 +44,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
+        if (stile == 1){
+            setTheme(R.style.AppThemeBlue);
+        } else if (stile == 2){
+            setTheme(R.style.AppThemeLightBlue);
+        } else if (stile == 3){
+            setTheme(R.style.AppThemeGreen);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        profileIdForSharedPref = PreferenceManager.getDefaultSharedPreferences(this).getInt("for_refresh_add_progress_index", -1);
+        Log.d("log",profileIdForSharedPref+"");
 
         getSupportActionBar().setTitle(R.string.title_main_action_bar);
 
@@ -57,36 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-//        themeAppDatabase = Room.databaseBuilder(getApplicationContext(),
-//                ThemeAppDatabase.class, "themeDB").allowMainThreadQueries().build();
-//
-//        new GetAllCarsAsyncTask().execute();
-
         recyclerView.setHasFixedSize(true);
-        adapter = new SpiritualCommunicationAdapter(themes,this);
+        adapter = new SpiritualCommunicationAdapter(themes,this, profileIdForSharedPref);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
-
-//        FloatingActionButton floatingActionButton =
-//                (FloatingActionButton) findViewById(R.id.floatingActionButton);
-//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //addAndEditCars(false, null, -1);
-//                long id = themeAppDatabase.getThemeDAO().addTheme(new Theme(0,
-//                        "Пример темы",
-//                        "Пример текста который не отображается на начальном экране",
-//                        "Пример главного стиха темы", R.drawable.theme_1));
-//
-//                Theme theme = themeAppDatabase.getThemeDAO().getTheme(id);
-//                themes.add(0, theme);
-//                adapter.notifyDataSetChanged();
-//            }
-//
-//
-//        });
 
     }
 
@@ -104,10 +91,15 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.action_settings){
             Intent intent = new Intent(this,SettingsActivity.class);
+            intent.putExtra("PROFILE_THEMES_PROGRESS",profileIdForSharedPref);
             startActivity(intent);
             return true;
         } else if (id == R.id.action_about){
             Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_add_note){
+            Intent intent = new Intent(this, AddReadNote.class);
             startActivity(intent);
             return true;
         }
@@ -115,20 +107,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    private class GetAllCarsAsyncTask extends AsyncTask <Void, Void, Void>{
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            themes.addAll(themeAppDatabase.getThemeDAO().getAllThemes());
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void aVoid) {
-//            super.onPostExecute(aVoid);
-//            adapter.notifyDataSetChanged();
-//        }
-//    }
+
+
 
     void fillArray(ArrayList<SpiritualCommunicationItem> spiritualCommunicationItems){
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_1, Utils.THEME_1, Utils.VERSE_1, Utils.MAIN_TEXT_1));

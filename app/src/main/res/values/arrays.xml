@@ -17,4 +17,17 @@
         <item>28</item>
     </string-array>
 
+
+
+    <string-array name="color_theme">
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="color_name">
+        <item>Зелёный</item>
+        <item>Голубой</item>
+        <item>Синий</item>
+    </string-array>
 </resources>

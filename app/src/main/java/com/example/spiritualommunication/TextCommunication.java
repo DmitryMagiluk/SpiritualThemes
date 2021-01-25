@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.NavUtils;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -31,8 +32,11 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-import static com.example.spiritualommunication.MainActivity.THEMES_PROGRESS;
-import static com.example.spiritualommunication.MainActivity.THEME_PROGRESS;
+import Data.FriendsAppDatabase;
+import Model.Friend;
+
+import static com.example.spiritualommunication.ProfilesActivity.PROFILE_THEMES_PROGRESS;
+import static com.example.spiritualommunication.ProfilesActivity.THEME_PROGRESS;
 
 
 public class TextCommunication extends AppCompatActivity {
@@ -47,12 +51,21 @@ public class TextCommunication extends AppCompatActivity {
     String mainText;
     String theme;
     int textSize; // Размер шрифта
+    Integer profileIdForSharedPrefName;
     Intent intent;
     SharedPreferences sharedPreferences; // настройка размера текста
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
+        if (stile == 1){
+            setTheme(R.style.AppThemeBlue);
+        } else if (stile == 2){
+            setTheme(R.style.AppThemeLightBlue);
+        } else if (stile == 3){
+            setTheme(R.style.AppThemeGreen);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_communication);
 
@@ -67,6 +80,8 @@ public class TextCommunication extends AppCompatActivity {
         if(intent != null){ // Устанавливаем тему в actionBar , устанавливаем CustomActionBar
             mainText = intent.getStringExtra("mainText");
             theme = intent.getStringExtra("theme");
+            profileIdForSharedPrefName = PreferenceManager.getDefaultSharedPreferences(this).getInt("for_refresh_add_progress_index", -1);
+            //Log.d("profileIdForSharedPref",profileIdForSharedPref+"");
 
             position = getIntent().getExtras().getInt("position");
             int numberTheme = position + 1;
@@ -84,7 +99,9 @@ public class TextCommunication extends AppCompatActivity {
         mainTextView.setTextSize(textSize);
 
 
-        mSettings = getSharedPreferences(THEMES_PROGRESS, Context.MODE_PRIVATE);
+
+        mSettings = getSharedPreferences("PROFILE_THEMES_PROGRESS" + profileIdForSharedPrefName, Context.MODE_PRIVATE);
+        //Log.d("profileIdForSharedPref", profileIdForSharedPref+"");
         progress = mSettings.getInt(THEME_PROGRESS + position, 0);
 
         if(progress == 0){
@@ -164,9 +181,12 @@ public class TextCommunication extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == android.R.id.home){
-            NavUtils.navigateUpFromSameTask(this);
+            //NavUtils.navigateUpFromSameTask(this);
+            finish();
+            return true;
         } else if(id == R.id.action_settings){
             Intent intent = new Intent(this,SettingsActivity.class);
+            intent.putExtra("PROFILE_THEMES_PROGRESS",profileIdForSharedPrefName);
             startActivity(intent);
             return true;
         } else if(id == R.id.action_add_note){

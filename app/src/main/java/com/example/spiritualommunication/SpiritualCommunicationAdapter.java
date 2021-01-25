@@ -14,20 +14,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import static com.example.spiritualommunication.MainActivity.THEMES_PROGRESS;
-import static com.example.spiritualommunication.MainActivity.THEME_PROGRESS;
+import static com.example.spiritualommunication.ProfilesActivity.PROFILE_THEMES_PROGRESS;
+import static com.example.spiritualommunication.ProfilesActivity.THEME_PROGRESS;
+
 
 public class SpiritualCommunicationAdapter extends RecyclerView.Adapter<SpiritualCommunicationAdapter.SpiritualCommunicationViewHolder>{
 
     ArrayList<SpiritualCommunicationItem> arrayList = new ArrayList<>();
     Context context;
+    Integer profileIdForSharedPref;
 
     SharedPreferences mSettings;
 
 
-    public SpiritualCommunicationAdapter(ArrayList<SpiritualCommunicationItem> arrayList, Context context) {
+    public SpiritualCommunicationAdapter(ArrayList<SpiritualCommunicationItem> arrayList, Context context, Integer profileIdForSharedPref) {
         this.arrayList = arrayList;
         this.context = context;
+        this.profileIdForSharedPref = profileIdForSharedPref;
     }
 
     @NonNull
@@ -47,8 +50,8 @@ public class SpiritualCommunicationAdapter extends RecyclerView.Adapter<Spiritua
         holder.theme.setText(spiritualCommunicationItem.getTheme());
         holder.verse.setText(spiritualCommunicationItem.getVerse());
 
-        mSettings = context.getSharedPreferences(THEMES_PROGRESS, Context.MODE_PRIVATE);
-        Integer progress = mSettings.getInt(THEME_PROGRESS + position,0);
+        mSettings = context.getSharedPreferences("PROFILE_THEMES_PROGRESS" + profileIdForSharedPref, Context.MODE_PRIVATE);
+        int progress = mSettings.getInt(THEME_PROGRESS + position,0);
 
 
         if(progress == 0){

@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#009788</color>
+    <color name="colorPrimaryDark">#09685F</color>
     <color name="colorAccent">#027569</color>
     <color name="colorAboutApp">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="green">#B9F3AF</color>
     <color name="gray">#FFFFFF</color>
+    <color name="colorPrimaryLight">#9049F4</color>
+    <color name="listBackground">#DDDDDD</color>
+
+
+    <color name="introActivityButton">#FFFFFF</color>
+    <color name="introActivity1">#FF4E79</color>
+    <color name="introActivity2">#C452FD</color>
+    <color name="introActivity3">#3895FF</color>
+    <color name="introActivity4">#00FFE2</color>
+    <color name="introActivity5">#5CA8FF</color>
+    <color name="introActivity6">#3F5BFB</color>
+    <color name="introActivity7">#FA4C77</color>
+
+
+    <color name="blue">#3E52B5</color>
+    <color name="blue_dark">#273787</color>
+
+    <color name="light_blue">#03A9F5</color>
+    <color name="light_blue_dark">#026E9F</color>
+
+    <color name="green_">#009788</color>
+    <color name="green_dark">#017569</color>
+
+    <color name="dark_mode">#2B2B2B</color>
+    <color name="dark_mode_dark">#101010</color>
 </resources>

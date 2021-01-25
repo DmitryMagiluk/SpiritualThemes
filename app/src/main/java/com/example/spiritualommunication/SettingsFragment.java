@@ -1,9 +1,12 @@
 package com.example.spiritualommunication;
 
 
+import android.app.TaskStackBuilder;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -13,31 +16,54 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.spiritualommunication.MainActivity.THEMES_PROGRESS;
+import static com.example.spiritualommunication.ProfilesActivity.PROFILE_THEMES_PROGRESS;
+
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener{
 
-    Preference progressPreference;
+    Preference progressPreference, textSizePreference;
+    int profileIdForSharedPrefSettings;
 
+
+//    public SettingsFragment(Preference progressPreference) {
+//        this.progressPreference = progressPreference;
+//        //this.profileIdForSharedPref = profileIdForSharedPref;
+//    }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.app_preferences);
 
+        //profileIdForSharedPrefSettings = settingsActivity.getProfileIdForSharedPref();
+
+
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
         PreferenceScreen preferenceScreen = getPreferenceScreen();
         int count = preferenceScreen.getPreferenceCount(); // Получаем количество настроек на экране
 
-        for (int i = 0; i < count; i++){ // пробегаем по списку всех настроек
+        for (int i = 0; i < count-1; i++){ // пробегаем по списку всех настроек
             Preference preference = preferenceScreen.getPreference(i); // Получаем имя i-той настройки
-            String value = sharedPreferences.getString(preference.getKey(),""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки
-            //Log.d("preference","" + preference);
+            String key = preference.getKey();
+           //Log.d("preference","" + preference);
             //Log.d("value","" + value);
-            setPreferenceLabel(preference,value);
+            if (preference.getKey().equals("text_size")){
+                String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки (как пример)
+                setPreferenceLabel(preference,value);
+            }  else if (key.equals("app_color_theme")){
+                String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки (как пример)
+                setPreferenceLabel(preference, value);
+            } else if (key.equals("switch_preference_night_mode")){
+
+            }
+
         }
+
+        //textSizePreference = findPreference("text_size");
 
         progressPreference = findPreference("progress_reset");
 
@@ -70,8 +96,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                     public void onClick(View v) {
                         Toast.makeText(getContext(), "Прогресс сброшен", Toast.LENGTH_LONG).show();
                         SharedPreferences sharedPreferences;
-                        sharedPreferences = getContext().getSharedPreferences(THEMES_PROGRESS,MODE_PRIVATE);
-                        sharedPreferences.edit().clear().commit();
+                        profileIdForSharedPrefSettings = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("for_refresh_add_progress_index",-1);
+                        Log.d("getProfi",profileIdForSharedPrefSettings+"");
+                        sharedPreferences = getContext().getSharedPreferences("PROFILE_THEMES_PROGRESS" + profileIdForSharedPrefSettings, MODE_PRIVATE);
+                        sharedPreferences.edit().clear().apply();
                         alertDialog.dismiss();
                     }
                 });
@@ -94,13 +122,24 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     }
 
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) { // слушатель изменения настройки в ListPreference
         Preference preference = findPreference(s); // находим настройку (название и то что в ней выбрано) по ключу s
         //Log.d("preference","" + preference); // выводится название настройки и то что в ней выбрано
-        String value = sharedPreferences.getString(preference.getKey(),""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки
+        String key = preference.getKey();
 
-        setPreferenceLabel(preference, value);
+        if (!(preference instanceof SwitchPreference)){
+            String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки
+            setPreferenceLabel(preference, value);
+            //Log.d("log",key +"");
+            if (key.equals("app_color_theme")){
+                TaskStackBuilder.create(getActivity())
+                        .addNextIntent(new Intent(getActivity(), ProfilesActivity.class))
+                        .addNextIntent(getActivity().getIntent())
+                        .startActivities();
+            }
+        }
     }
 
     @Override

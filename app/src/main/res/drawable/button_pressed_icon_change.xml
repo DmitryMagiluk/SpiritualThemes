@@ -2,5 +2,5 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@drawable/ic_baseline_local_post_office_60_black" android:state_pressed="true"/>
-    <item android:drawable="@drawable/ic_baseline_local_post_office_60_read"/>
+    <item android:drawable="@drawable/ic_baseline_local_post_office_60_read" android:state_pressed="false"/>
 </selector>

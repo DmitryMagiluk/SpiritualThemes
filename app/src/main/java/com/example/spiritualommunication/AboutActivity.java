@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
+import androidx.preference.PreferenceManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,18 +16,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import static com.example.spiritualommunication.MainActivity.THEMES_PROGRESS;
-import static com.example.spiritualommunication.MainActivity.THEME_PROGRESS;
 
 public class AboutActivity extends AppCompatActivity {
 
     String[] address = {"themes-spiritual@mail.ru"};
-    TextView appNameTextView;
+    TextView appNameTextView, textViewDescription;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
+        if (stile == 1){
+            setTheme(R.style.AppThemeBlue);
+        } else if (stile == 2){
+            setTheme(R.style.AppThemeLightBlue);
+        } else if (stile == 3){
+            setTheme(R.style.AppThemeGreen);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
@@ -37,7 +44,9 @@ public class AboutActivity extends AppCompatActivity {
         }
 
         appNameTextView = findViewById(R.id.appName);
+        textViewDescription = findViewById(R.id.textViewHint);
         appNameTextView.setText(R.string.title_main_action_bar);
+        textViewDescription.setText((String)Utils.ABOUT_APP);
     }
 
     @Override
