@@ -8,13 +8,9 @@
         android:icon="@drawable/ic_baseline_format_size_24"
         android:key="text_size"
         android:title="Размер текста"
+        android:summary="Средний"
         app:defaultValue="20"
         app:negativeButtonText="Назад"/>
-
-    <Preference
-        android:key="progress_reset"
-        android:title="Пройти все темы заново"
-        android:icon="@drawable/ic_baseline_refresh_24"/>
 
     <ListPreference
         android:entries="@array/color_name"
@@ -23,13 +19,12 @@
         app:title="Установить цвет приложения"
         android:icon="@drawable/ic_baseline_color_lens_24"
         android:defaultValue="1"
-        android:negativeButtonText="Назад"/>
+        android:negativeButtonText="Назад" />
 
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="switch_preference_night_mode"
-        android:title="Ночной режим (в разработке)"
-        android:icon="@drawable/ic_baseline_nights_stay_24"/>
+    <Preference
+        android:key="progress_reset"
+        android:title="Пройти все темы заново"
+        android:icon="@drawable/ic_baseline_refresh_24"/>
 
 
 </PreferenceScreen>

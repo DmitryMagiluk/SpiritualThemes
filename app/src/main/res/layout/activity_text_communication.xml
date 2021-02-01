@@ -39,28 +39,45 @@
                 android:textSize="20sp"
                 android:paddingBottom="10dp"/>
 
-            <TextView
-                android:id="@+id/hintButton"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:layout_margin="7dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="#062591"/>
+                android:layout_gravity="end"
+                android:paddingRight="15dp">
 
-            <Button
-                android:id="@+id/progressButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:textSize="20sp"
-                android:text="Done"
-                android:textColor="@android:color/black"
-                android:background="@drawable/customborder_green"
-                android:onClick="saveSharedPreferences"
-                android:drawableRight="@drawable/ic_baseline_done_40"
-                android:drawableLeft="@drawable/ic_baseline_done_40"/>
+                <ImageButton
+                    android:id="@+id/progressButtonLater"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/customborder_yellow"
+                    android:onClick="saveSharedPreferencesLater"
+                    android:src="@drawable/ic_baseline_update_40" />
+
+                <ImageButton
+                    android:id="@+id/progressButtonRefresh"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/customborder_blue"
+                    android:onClick="saveSharedPreferencesRefresh"
+                    android:src="@drawable/ic_baseline_autorenew_40"
+                    android:layout_toRightOf="@+id/progressButtonLater"/>
+
+                <ImageButton
+                    android:id="@+id/progressButtonDone"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/customborder_green"
+                    android:onClick="saveSharedPreferencesDone"
+                    android:src="@drawable/ic_baseline_done_40"
+                    android:layout_toRightOf="@+id/progressButtonLater"/>
+
+
+            </RelativeLayout>
+
+
 
         </LinearLayout>
 

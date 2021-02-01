@@ -17,24 +17,21 @@ import static com.example.spiritualommunication.ProfilesActivity.PROFILE_THEMES_
 
 public class SettingsActivity extends AppCompatActivity {
 
-    public Integer profileIdForSharedPref;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
         if (stile == 1){
-            setTheme(R.style.AppThemeBlue);
+            setTheme(R.style.AppThemeGreen);
         } else if (stile == 2){
             setTheme(R.style.AppThemeLightBlue);
         } else if (stile == 3){
-            setTheme(R.style.AppThemeGreen);
+            setTheme(R.style.AppThemeBlue);
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
         Intent intent = getIntent();
 
-        profileIdForSharedPref = intent.getIntExtra("PROFILE_THEMES_PROGRESS", -1);
         //Log.d("getProfi",profileIdForSharedPref+"");
 
 

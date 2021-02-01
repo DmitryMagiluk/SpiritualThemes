@@ -28,7 +28,6 @@
                             android:layout_alignParentLeft="true"
                             android:layout_weight="1"
                             android:gravity="bottom|center"
-                            android:paddingLeft="7dp"
                             android:text="Name"
                             android:textColor="@android:color/black"
                             android:textSize="20sp" />

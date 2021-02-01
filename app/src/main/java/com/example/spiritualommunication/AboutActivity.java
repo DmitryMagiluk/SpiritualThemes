@@ -28,11 +28,11 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
         if (stile == 1){
-            setTheme(R.style.AppThemeBlue);
+            setTheme(R.style.AppThemeGreen);
         } else if (stile == 2){
             setTheme(R.style.AppThemeLightBlue);
         } else if (stile == 3){
-            setTheme(R.style.AppThemeGreen);
+            setTheme(R.style.AppThemeBlue);
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);

@@ -58,11 +58,11 @@ public class ProfilesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
         if (stile == 1){
-            setTheme(R.style.AppThemeBlue);
+            setTheme(R.style.AppThemeGreen);
         } else if (stile == 2){
             setTheme(R.style.AppThemeLightBlue);
         } else if (stile == 3){
-            setTheme(R.style.AppThemeGreen);
+            setTheme(R.style.AppThemeBlue);
         }
         super.onCreate(savedInstanceState);
 
@@ -110,13 +110,14 @@ public class ProfilesActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         if (stile == 1){
-            fab.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+            fab.setBackgroundTintList(getResources().getColorStateList(R.color.green_));
 
         } else if (stile == 2){
             fab.setBackgroundTintList(getResources().getColorStateList(R.color.light_blue));
 
         } else if (stile == 3){
-            fab.setBackgroundTintList(getResources().getColorStateList(R.color.green_));
+            fab.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+
         }
         //getSupportActionBar().setTitle(R.string.title_profiles_action_bar);
         //getSupportActionBar().hide();

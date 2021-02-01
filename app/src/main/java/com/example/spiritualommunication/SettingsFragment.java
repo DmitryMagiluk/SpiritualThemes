@@ -55,7 +55,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                 String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки (как пример)
                 setPreferenceLabel(preference,value);
             }  else if (key.equals("app_color_theme")){
-                String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки (как пример)
+                String value = sharedPreferences.getString(key,"");
                 setPreferenceLabel(preference, value);
             } else if (key.equals("switch_preference_night_mode")){
 
@@ -98,7 +98,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                         SharedPreferences sharedPreferences;
                         profileIdForSharedPrefSettings = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("for_refresh_add_progress_index",-1);
                         Log.d("getProfi",profileIdForSharedPrefSettings+"");
-                        sharedPreferences = getContext().getSharedPreferences("PROFILE_THEMES_PROGRESS" + profileIdForSharedPrefSettings, MODE_PRIVATE);
+                        sharedPreferences = getContext().getSharedPreferences("PROFILE_THEMES_PROGRESS" + profileIdForSharedPrefSettings, MODE_PRIVATE); //Для удаления прогресса в профиле
+                        sharedPreferences.edit().clear().apply();
+                        sharedPreferences = getContext().getSharedPreferences("PROFILE_THEMES_PROGRESS_" + profileIdForSharedPrefSettings, MODE_PRIVATE); //Для удаления заметок в профиле
                         sharedPreferences.edit().clear().apply();
                         alertDialog.dismiss();
                     }
@@ -129,7 +131,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         //Log.d("preference","" + preference); // выводится название настройки и то что в ней выбрано
         String key = preference.getKey();
 
-        if (!(preference instanceof SwitchPreference)){
+        if (preference instanceof ListPreference){
             String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки
             setPreferenceLabel(preference, value);
             //Log.d("log",key +"");

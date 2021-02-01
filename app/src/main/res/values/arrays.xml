@@ -11,18 +11,18 @@
 
     <string-array name="values_int">
         <item>14</item>
-        <item>18</item>
-        <item>20</item>
-        <item>24</item>
-        <item>28</item>
+        <item>16</item>
+        <item>19</item>
+        <item>22</item>
+        <item>26</item>
     </string-array>
 
 
 
     <string-array name="color_theme">
-        <item>3</item>
-        <item>2</item>
         <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="color_name">
