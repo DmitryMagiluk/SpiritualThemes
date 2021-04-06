@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Духовные темы</string>
-    <string name="title_main_action_bar" translatable="false">Темы для общения</string>
-    <string name="title_profiles_action_bar" translatable="false">Темы для духовного общения</string>
+    <string name="app_name" translatable="false">Духовный друг</string>
+    <string name="title_main_action_bar" translatable="false">Духовные темы</string>
+    <string name="title_profiles_action_bar" translatable="false">Духовные темы</string>
 </resources>

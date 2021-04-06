@@ -9,29 +9,13 @@
     android:scrollbars="vertical"
     android:stateListAnimator="@anim/animation"
     android:foreground="?attr/selectableItemBackground"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/themeImageView"
-            android:layout_width="165dp"
-            android:layout_height="165dp"
-            android:scaleType="centerCrop"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_baseline_broken_image_24"/>
-
-        <ImageView
-            android:id="@+id/progressThemeImageView"
-            android:layout_width="match_parent"
-            android:layout_height="165dp"
-            android:scaleType="center"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/themeImageView"
-            android:layout_margin="4dp"/>
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/themeTextView"
@@ -41,20 +25,45 @@
             android:textStyle="bold"
             android:textSize="19sp"
             android:textColor="@android:color/black"
-            android:layout_toRightOf="@+id/themeImageView"
-            android:layout_marginLeft="7dp"/>
+            android:gravity="center_horizontal"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"/>
 
-        <TextView
-            android:id="@+id/verseTextView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Main Verse"
-            android:textStyle="italic"
-            android:textColor="@android:color/black"
-            android:textSize="13sp"
-            android:layout_toRightOf="@+id/themeImageView"
-            android:layout_below="@+id/themeTextView"
-            android:layout_marginLeft="7dp"/>
+            android:layout_height="wrap_content">
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/themeImageView"
+                android:layout_width="165dp"
+                android:layout_height="165dp"
+                android:scaleType="centerCrop"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_baseline_broken_image_24"/>
+
+            <ImageView
+                android:id="@+id/progressThemeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:scaleType="center"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/themeImageView"
+                android:layout_margin="4dp"/>
+
+            <TextView
+                android:id="@+id/verseTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Main Verse"
+                android:textStyle="italic"
+                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/themeImageView"
+                android:layout_marginLeft="7dp"
+                android:gravity="center_horizontal" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

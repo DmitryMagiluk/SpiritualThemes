@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddReadNote">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonNoteLL">
+
+
+        <EditText
+            android:id="@+id/editTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Добавьте молитвенную нужду"
+            android:textColor="@android:color/black"
+            android:background="#FFFFFF"
+            android:textSize="19sp"
+            android:layout_margin="7dp"
+            android:inputType="textCapSentences|textMultiLine"/>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/buttonNoteLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="15dp">
+
+        <ImageButton
+            android:id="@+id/buttonNote"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="7dp"
+            android:background="@drawable/customborder_green"
+            android:src="@drawable/ic_baseline_edit_40"
+            android:onClick="addChangeNote"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

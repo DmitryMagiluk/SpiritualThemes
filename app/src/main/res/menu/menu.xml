@@ -4,17 +4,25 @@
 
     <item
         android:title="Заметки"
-        app:showAsAction="ifRoom"
         android:id="@+id/action_add_note"
         android:icon="@drawable/ic_baseline_edit_24"
-        android:orderInCategory="1"/>
+        android:orderInCategory="2"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/prayer_needs"
+        android:title="Молитвенные нужды"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_pray"
+        android:orderInCategory="1">
+    </item>
 
     <item
         android:title="Настройки"
         app:showAsAction="never"
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
         />
 
     <item
@@ -22,6 +30,6 @@
         app:showAsAction="never"
         android:id="@+id/action_about"
         android:icon="@drawable/ic_baseline_info_24"
-        android:orderInCategory="3"/>
+        android:orderInCategory="4"/>
 
 </menu>

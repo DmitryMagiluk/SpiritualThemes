@@ -36,8 +36,8 @@
 
         <ImageButton
             android:id="@+id/buttonNote"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_margin="7dp"
             android:background="@drawable/customborder_green"
             android:src="@drawable/ic_baseline_edit_40"
@@ -46,7 +46,5 @@
             android:textAllCaps="false"/>
 
     </RelativeLayout>
-
-
 
 </RelativeLayout>

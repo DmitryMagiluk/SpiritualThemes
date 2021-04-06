@@ -25,7 +25,7 @@
                 android:text="Theme"
                 android:layout_margin="7dp"
                 android:textColor="@android:color/black"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal" />
 

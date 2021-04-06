@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="7dp">
 
@@ -37,10 +37,9 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="Версия приложения"
                 android:textColor="@color/colorAboutApp"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/appVersion"
@@ -48,10 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="1.1"
+                android:text="1.0"
                 android:textColor="@color/colorAboutApp"
-
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
 
@@ -76,38 +74,61 @@
             android:gravity="center"
             android:autoLink="email"
             android:text='
-Если вы обнаружили ошибку в нашем приложении или хотите оставить
-о нем отзыв/пожелание, воспользуйтесь кнопкой "Написать разработчикам".
-При описании технических проблем укажите как можно больше деталей.\n
-Почта разработчиков: themes-spiritual@mail.ru
-\n Просим вас указывать ТЕМУ сообщения в письме.'
+Если у Вас возникли технические проблемы или Вы обнаружили ошибку в приложении,
+воспользуйтесь кнопкой "Техподдержка" \n
+Почта техподдержки:\n themes-spiritual@mail.ru \n
+При описании технических проблем укажите как можно больше деталей.\n\n
+
+Если Вы хотите оставить отзыв или имеете вопросы по части служения,
+воспользуйтесь кнопкой "Служение" \n
+Почта служения:\n spiritual-friend@mail.ru
+
+\n Просим Вас указывать ТЕМУ сообщения в письме.'
             android:textColor="@color/colorAboutApp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/customborder"
-            android:layout_marginBottom="7dp"
+            android:layout_marginBottom="15dp"
             android:textIsSelectable="true"/>
 
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:onClick="sendEmail"
-                android:text="Написать разработчикам"
+                android:onClick="sendEmailSupport"
+                android:text="Техподдержка"
                 android:textColor="@color/button_pressed_text_color"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:background="@drawable/button_pressed_drawable"
-                android:drawableRight="@drawable/button_pressed_icon_change">
+                android:drawableRight="@drawable/button_pressed_icon_change"
+                android:textAllCaps="false">
             </Button>
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:onClick="sendEmailService"
+            android:text="Служение"
+            android:textColor="@color/button_pressed_text_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/button_pressed_drawable"
+            android:drawableRight="@drawable/button_pressed_icon_change"
+            android:textAllCaps="false">
+        </Button>
     </LinearLayout>
 </ScrollView>

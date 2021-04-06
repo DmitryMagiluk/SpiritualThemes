@@ -26,5 +26,9 @@
         android:title="Пройти все темы заново"
         android:icon="@drawable/ic_baseline_refresh_24"/>
 
+    <SwitchPreference
+        android:key="simple_themes"
+        android:title="Темы без картинок"
+        android:icon="@drawable/ic_baseline_broken_image_24"/>
 
 </PreferenceScreen>
