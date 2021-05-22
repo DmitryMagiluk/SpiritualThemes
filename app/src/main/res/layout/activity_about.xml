@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="1.0"
+                android:text="@string/version_app"
                 android:textColor="@color/colorAboutApp"
                 android:textSize="18sp" />
         </LinearLayout>

@@ -31,4 +31,9 @@
         android:title="Темы без картинок"
         android:icon="@drawable/ic_baseline_broken_image_24"/>
 
+    <SwitchPreference
+        android:key="sound_mode"
+        android:title="Режим 'Без звука'"
+        android:icon="@drawable/ic_baseline_music_off_24"/>
+
 </PreferenceScreen>

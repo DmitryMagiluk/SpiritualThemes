@@ -159,5 +159,7 @@ public class MainActivity extends AppCompatActivity {
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_48, Utils.THEME_48, Utils.VERSE_48, Utils.MAIN_TEXT_48));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_49, Utils.THEME_49, Utils.VERSE_49, Utils.MAIN_TEXT_49));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_50, Utils.THEME_50, Utils.VERSE_50, Utils.MAIN_TEXT_50));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_51, Utils.THEME_51, Utils.VERSE_51, Utils.MAIN_TEXT_51));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_52, Utils.THEME_52, Utils.VERSE_52, Utils.MAIN_TEXT_52));
     }
 }

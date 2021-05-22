@@ -136,8 +136,12 @@ public class TextCommunication extends AppCompatActivity {
 
             editor.putInt(THEME_PROGRESS + position , 2);
             editor.apply();
-            MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.end_theme);
-            mediaPlayer.start();
+
+            Boolean soundMode = Boolean.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getBoolean("sound_mode",false));
+            if (!soundMode){
+                MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.end_theme);
+                mediaPlayer.start();
+            }
             //Toast.makeText(this, "Отмечена как завершенная", Toast.LENGTH_SHORT).show();
         }
     }
