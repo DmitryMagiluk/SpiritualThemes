@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -118,13 +119,13 @@ public class ProfilesActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         if (stile == 1){
-            fab.setBackgroundTintList(getResources().getColorStateList(R.color.green_));
+            fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.green_));
 
         } else if (stile == 2){
-            fab.setBackgroundTintList(getResources().getColorStateList(R.color.light_blue));
+            fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.light_blue));
 
         } else if (stile == 3){
-            fab.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+            fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.blue));
 
         }
         //getSupportActionBar().setTitle(R.string.title_profiles_action_bar);
@@ -290,18 +291,5 @@ public class ProfilesActivity extends AppCompatActivity {
             friendAdapter.notifyDataSetChanged();
         }
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_for_profiles, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        return super.onOptionsItemSelected(item);
     }
 }
