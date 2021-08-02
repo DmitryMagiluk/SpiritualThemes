@@ -16,7 +16,7 @@ android {
         applicationId "com.friend.spiritualcommunication"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 5
+        versionCode 6
         versionName "@string/version_app"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
