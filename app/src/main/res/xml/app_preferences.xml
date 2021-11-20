@@ -12,24 +12,24 @@
         app:defaultValue="20"
         app:negativeButtonText="Назад"/>
 
-    <ListPreference
-        android:entries="@array/color_name"
-        android:entryValues="@array/color_theme"
-        android:key="app_color_theme"
-        app:title="Установить цвет приложения"
-        android:icon="@drawable/ic_baseline_color_lens_24"
-        android:defaultValue="1"
-        android:negativeButtonText="Назад" />
+<!--    <ListPreference-->
+<!--        android:entries="@array/color_name"-->
+<!--        android:entryValues="@array/color_theme"-->
+<!--        android:key="app_color_theme"-->
+<!--        app:title="Установить цвет приложения"-->
+<!--        android:icon="@drawable/ic_baseline_color_lens_24"-->
+<!--        android:defaultValue="1"-->
+<!--        android:negativeButtonText="Назад" />-->
 
     <Preference
         android:key="progress_reset"
         android:title="Пройти все темы заново"
         android:icon="@drawable/ic_baseline_refresh_24"/>
 
-    <SwitchPreference
-        android:key="simple_themes"
-        android:title="Темы без картинок"
-        android:icon="@drawable/ic_baseline_broken_image_24"/>
+<!--    <SwitchPreference-->
+<!--        android:key="simple_themes"-->
+<!--        android:title="Темы без картинок"-->
+<!--        android:icon="@drawable/ic_baseline_broken_image_24"/>-->
 
     <SwitchPreference
         android:key="sound_mode"

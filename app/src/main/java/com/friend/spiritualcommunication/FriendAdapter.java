@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -38,7 +39,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.MyViewHold
             super(itemView);
             nameTextView = itemView.findViewById(R.id.nameTextView);
             noteTextView = itemView.findViewById(R.id.noteTextView);
-            iconImageViewRL = itemView.findViewById(R.id.iconImageViewRL);
+            iconImageViewRL = itemView.findViewById(R.id.iconImageViewRLLeft);
         }
     }
 

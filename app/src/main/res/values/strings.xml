@@ -2,5 +2,5 @@
     <string name="app_name" translatable="false">Духовный друг</string>
     <string name="title_main_action_bar" translatable="false">Темы</string>
     <string name="title_profiles_action_bar" translatable="false">Духовные темы</string>
-    <string name="version_app" translatable="false">1.6</string>
+    <string name="version_app" translatable="false">1.7</string>
 </resources>

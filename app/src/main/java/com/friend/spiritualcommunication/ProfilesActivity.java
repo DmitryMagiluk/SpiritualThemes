@@ -60,14 +60,7 @@ public class ProfilesActivity extends AppCompatActivity {
     @SuppressLint({"WrongConstant", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
-        if (stile == 1){
             setTheme(R.style.AppThemeGreen);
-        } else if (stile == 2){
-            setTheme(R.style.AppThemeLightBlue);
-        } else if (stile == 3){
-            setTheme(R.style.AppThemeBlue);
-        }
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_profiles);
@@ -109,31 +102,21 @@ public class ProfilesActivity extends AppCompatActivity {
             PreferenceManager.getDefaultSharedPreferences(this).edit()
             .putInt(PREF_KEY_PROFILE_PROGRESS, 2)
             .apply();
-            addFriend("Введите Имя друга 1", "Нажмите на карандаш в правом верхнем углу", 1);
-            addFriend("Введите Имя друга 2", "Нажмите на карандаш в правом верхнем углу", 2);
+            addFriend("Введите Имя друга 1", "Нажмите на три точки слева", 1);
+            addFriend("Введите Имя друга 2", "Нажмите на три точки слева", 2);
             Intent intent = new Intent(this, MainIntroActivity.class);
             startActivityForResult(intent, REQUEST_CODE_INTRO);
         }
 
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.green_));
 
-        if (stile == 1){
-            fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.green_));
-
-        } else if (stile == 2){
-            fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.light_blue));
-
-        } else if (stile == 3){
-            fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.blue));
-
-        }
         //getSupportActionBar().setTitle(R.string.title_profiles_action_bar);
         //getSupportActionBar().hide();
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.titlebar);
-
 
 
         fab.setOnClickListener(new View.OnClickListener() {

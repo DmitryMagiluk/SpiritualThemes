@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,9 +26,6 @@ public class SpiritualCommunicationAdapter extends RecyclerView.Adapter<Spiritua
     Integer profileIdForSharedPref;
 
     SharedPreferences mSettings;
-    boolean simpleTheme;
-
-
 
     public SpiritualCommunicationAdapter(ArrayList<SpiritualCommunicationItem> arrayList, Context context, Integer profileIdForSharedPref) {
         this.arrayList = arrayList;
@@ -38,17 +36,8 @@ public class SpiritualCommunicationAdapter extends RecyclerView.Adapter<Spiritua
     @NonNull
     @Override
     public SpiritualCommunicationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        simpleTheme = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("simple_themes",false);
-
         View view;
-
-        if(simpleTheme){
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_spiritual_communication_item,
-                    parent, false);
-        } else{
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.spiritual_communication_item,
-                    parent, false);
-        }
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.spiritual_communication_item, parent, false);
 
         SpiritualCommunicationViewHolder spiritualCommunicationViewHolder = new SpiritualCommunicationViewHolder(view);
         return spiritualCommunicationViewHolder;
@@ -61,35 +50,17 @@ public class SpiritualCommunicationAdapter extends RecyclerView.Adapter<Spiritua
         mSettings = context.getSharedPreferences("PROFILE_THEMES_PROGRESS" + profileIdForSharedPref, Context.MODE_PRIVATE);
         int progress = mSettings.getInt(THEME_PROGRESS + position,0);
 
-        if(simpleTheme){
+            holder.imageRecourse.setImageResource(spiritualCommunicationItem.getImageRecourse()); // удалить после отладки................................
             holder.theme.setText(spiritualCommunicationItem.getTheme());
             if(progress == 0){
-                holder.progressImageRecourse.setImageResource(0);
-                //holder.progressImageRecourse.setBackgroundColor(0);
-            } else if(progress == 1){
-                holder.progressImageRecourse.setImageResource(R.drawable.ic_baseline_update_160);
-                //holder.progressImageRecourse.setBackgroundColor(context.getResources().getColor(R.color.gray));
-            }else if(progress == 2){
-                holder.progressImageRecourse.setImageResource(R.drawable.ic_baseline_done_160);
-                //holder.progressImageRecourse.setBackgroundColor(context.getResources().getColor(R.color.gray));
-            }
+                holder.imageRight.setBackgroundColor(0);
 
-        }else {
-            holder.imageRecourse.setImageResource(spiritualCommunicationItem.getImageRecourse());
-            holder.theme.setText(spiritualCommunicationItem.getTheme());
-            holder.verse.setText(spiritualCommunicationItem.getVerse());
-            if(progress == 0){
-                holder.progressImageRecourse.setImageResource(0);
-                //holder.progressImageRecourse.setBackgroundColor(0);
             } else if(progress == 1){
-                holder.progressImageRecourse.setImageResource(R.drawable.ic_baseline_update_160);
-                //holder.progressImageRecourse.setBackgroundColor(context.getResources().getColor(R.color.gray));
-            }else if(progress == 2){
-                holder.progressImageRecourse.setImageResource(R.drawable.ic_baseline_done_160);
-                //holder.progressImageRecourse.setBackgroundColor(context.getResources().getColor(R.color.gray));
-            }
-        }
+                holder.imageRight.setBackgroundColor(context.getResources().getColor(R.color.yellow));
 
+            }else if(progress == 2){
+                holder.imageRight.setBackgroundColor(context.getResources().getColor(R.color.green));
+            }
     }
 
     @Override
@@ -101,17 +72,15 @@ public class SpiritualCommunicationAdapter extends RecyclerView.Adapter<Spiritua
     class SpiritualCommunicationViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public ImageView imageRecourse;
-        public ImageView progressImageRecourse;
         public TextView theme;
-        public TextView verse;
+        public ImageView imageRight;
 
         public SpiritualCommunicationViewHolder(@NonNull View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             imageRecourse = itemView.findViewById(R.id.themeImageView);
-            progressImageRecourse = itemView.findViewById(R.id.progressThemeImageView);
             theme = itemView.findViewById(R.id.themeTextView);
-            verse = itemView.findViewById(R.id.verseTextView);
+            imageRight = itemView.findViewById(R.id.imageRight);
         }
 
 

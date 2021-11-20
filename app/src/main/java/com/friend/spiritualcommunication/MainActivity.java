@@ -16,8 +16,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import Model.Friend;
+
 public class MainActivity extends AppCompatActivity {
 
+    //private ArrayList<Friend> friends;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -35,20 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        int stile = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("app_color_theme", "1"));
-        if (stile == 1){
             setTheme(R.style.AppThemeGreen);
-        } else if (stile == 2){
-            setTheme(R.style.AppThemeLightBlue);
-        } else if (stile == 3){
-            setTheme(R.style.AppThemeBlue);
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         profileIdForSharedPref = PreferenceManager.getDefaultSharedPreferences(this).getInt("for_refresh_add_progress_index", -1);
         Log.d("log",profileIdForSharedPref+"");
 
+        //final Friend friend = friends.get()
         getSupportActionBar().setTitle(R.string.title_main_action_bar);
 
         ArrayList<SpiritualCommunicationItem> spiritualCommunicationItems = new ArrayList<>();
@@ -172,6 +169,8 @@ public class MainActivity extends AppCompatActivity {
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_61, Utils.THEME_61, Utils.VERSE_61, Utils.MAIN_TEXT_61));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_62, Utils.THEME_62, Utils.VERSE_62, Utils.MAIN_TEXT_62));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_63, Utils.THEME_63, Utils.VERSE_63, Utils.MAIN_TEXT_63));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_64, Utils.THEME_64, Utils.VERSE_64, Utils.MAIN_TEXT_64));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_65, Utils.THEME_65, Utils.VERSE_65, Utils.MAIN_TEXT_65));
 
     }
 }

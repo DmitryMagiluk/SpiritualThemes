@@ -17,17 +17,4 @@
         <item>26</item>
     </string-array>
 
-
-
-    <string-array name="color_theme">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="color_name">
-        <item>Зелёный</item>
-        <item>Голубой</item>
-        <item>Синий</item>
-    </string-array>
 </resources>

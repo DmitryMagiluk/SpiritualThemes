@@ -49,13 +49,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             String key = preference.getKey();
            //Log.d("preference","" + preference);
             //Log.d("value","" + value);
-            if (preference.getKey().equals("text_size")){
-                String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки (как пример)
-                setPreferenceLabel(preference,value);
-            }  else if (key.equals("app_color_theme")){
-                String value = sharedPreferences.getString(key,"");
+            if (preference.getKey().equals("text_size")) {
+                String value = sharedPreferences.getString(key, ""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки (как пример)
                 setPreferenceLabel(preference, value);
             }
+//            }  else if (key.equals("app_color_theme")){
+//                String value = sharedPreferences.getString(key,"");
+//                setPreferenceLabel(preference, value);
+//            }
 
         }
 
@@ -127,23 +128,24 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         //Log.d("preference","" + preference); // выводится название настройки и то что в ней выбрано
         String key = preference.getKey();
 
-        if (preference instanceof ListPreference){
-            String value = sharedPreferences.getString(key,""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки
-            setPreferenceLabel(preference, value);
+          if (preference instanceof ListPreference) {
+              String value = sharedPreferences.getString(key, ""); // Получаем значение 14 18 20 24 28 установленное в i-ой настройке, preference.getKey() - Получаем имя(ключ) нашей настройки
+              setPreferenceLabel(preference, value);
+          }
             //Log.d("log",key +"");
-            if (key.equals("app_color_theme")){
-                TaskStackBuilder.create(getActivity())
-                        .addNextIntent(new Intent(getActivity(), ProfilesActivity.class))
-                        .addNextIntent(getActivity().getIntent())
-                        .startActivities();
-            }
-        }
-        if(key.equals("simple_themes")){
-            TaskStackBuilder.create(getActivity())
-                    .addNextIntent(new Intent(getActivity(), ProfilesActivity.class))
-                    .addNextIntent(getActivity().getIntent())
-                    .startActivities();
-        }
+//            if (key.equals("app_color_theme")){
+//                TaskStackBuilder.create(getActivity())
+//                        .addNextIntent(new Intent(getActivity(), ProfilesActivity.class))
+//                        .addNextIntent(getActivity().getIntent())
+//                        .startActivities();
+//            }
+//        }
+//        if(key.equals("simple_themes")){
+//            TaskStackBuilder.create(getActivity())
+//                    .addNextIntent(new Intent(getActivity(), ProfilesActivity.class))
+//                    .addNextIntent(getActivity().getIntent())
+//                    .startActivities();
+//        }
     }
 
     @Override
