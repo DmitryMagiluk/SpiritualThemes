@@ -163,10 +163,10 @@ public class ProfilesActivity extends AppCompatActivity {
         final EditText nameEditText = (EditText) view.findViewById(R.id.nameEditText);
         final EditText noteEditText = (EditText) view.findViewById(R.id.noteEditText);
 
-        noteEditText.setBackgroundResource(R.drawable.edit_text_normal);
-        nameEditText.setBackgroundResource(R.drawable.edit_text_normal);
+        //noteEditText.setBackgroundResource(R.drawable.edit_text_normal);
+        //nameEditText.setBackgroundResource(R.drawable.edit_text_normal);
 
-        titleTextView.setText(!isUpdate ? "Добавьте духовного друга" : "Удалить или изменить данные");
+        titleTextView.setText(!isUpdate ? "Добавьте духовного друга" : "Редактирование");
 
         if(isUpdate && friend!=null){
             nameEditText.setText(friend.getName());
