@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         Dmitry {
-            storeFile file('C:\\Users\\Dmitry\\keys_for_apps.jks')
-            storePassword '245507Dima'
-            keyAlias '2'
-            keyPassword '245507Dima'
+            storeFile file('E:\\AndroidStudioProjects\\keystore.jks')
+            storePassword '245507'
+            keyAlias 'key1'
+            keyPassword '245507'
         }
     }
     compileSdkVersion 30
@@ -16,7 +16,7 @@ android {
         applicationId "com.friend.spiritualcommunication"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 12
+        versionCode 15
         versionName "@string/version_app"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
