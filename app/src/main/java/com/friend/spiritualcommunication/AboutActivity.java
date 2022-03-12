@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class AboutActivity extends AppCompatActivity {
@@ -69,6 +70,8 @@ public class AboutActivity extends AppCompatActivity {
 
         if (intent.resolveActivity(getPackageManager()) != null){
             startActivity(intent);
+        } else {
+            Toast.makeText(this, "Не удалось открыть почту", Toast.LENGTH_SHORT).show();
         }
     }
 }
