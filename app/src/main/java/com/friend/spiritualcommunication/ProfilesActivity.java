@@ -34,6 +34,7 @@ import java.util.ArrayList;
 
 import Data.FriendsAppDatabase;
 import Model.Friend;
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 
 public class ProfilesActivity extends AppCompatActivity {
@@ -132,6 +133,7 @@ public class ProfilesActivity extends AppCompatActivity {
                 addAndEditFriend(false, null, -1);
             }
         });
+
     }
 
     @Override
