@@ -93,6 +93,22 @@
             android:layout_marginBottom="15dp"
             android:textIsSelectable="true"/>
 
+        <TextView
+            android:id="@+id/textLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text='Для входа с компьютера и пользователей iPhone духовные темы для общения вы можете найти на нашем сайте: \n\n https://friend493842263.wordpress.com
+\n\n Для пользователей iPhone можно создать иконку на экран «Домой» для быстрого входа на сайт.'
+            android:textColor="@color/colorAboutApp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/customborder"
+            android:layout_marginBottom="15dp"
+            android:textIsSelectable="true"
+            android:autoLink="web"/>
 
             <Button
                 android:layout_width="match_parent"
