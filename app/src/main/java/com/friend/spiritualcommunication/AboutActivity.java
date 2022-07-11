@@ -38,7 +38,7 @@ public class AboutActivity extends AppCompatActivity {
 
         appNameTextView = findViewById(R.id.appName);
         textViewDescription = findViewById(R.id.textViewHint);
-        appNameTextView.setText(R.string.title_main_action_bar);
+        appNameTextView.setText(R.string.app_name);
         textViewDescription.setText((String)Utils.ABOUT_APP);
     }
 
@@ -60,6 +60,8 @@ public class AboutActivity extends AppCompatActivity {
 
         if (intent.resolveActivity(getPackageManager()) != null){
             startActivity(intent);
+        } else {
+            Toast.makeText(this, "Не удалось открыть почту", Toast.LENGTH_SHORT).show();
         }
     }
 

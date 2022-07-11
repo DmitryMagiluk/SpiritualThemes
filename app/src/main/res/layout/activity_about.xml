@@ -21,10 +21,29 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/bilbo_swash_caps"
             android:gravity="center"
-            android:text="Название приложения"
+            android:text="Духовный Друг"
             android:textColor="@color/colorAboutApp"
             android:paddingBottom="4dp"
             android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/customborder"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:text="Видеоинструкция к приложению на YouTube: \n
+https://www.youtube.com/watch?v=E1CTNpNrEms&amp;ab_channel=%D0%94%D1%83%D1%85%D0%BE%D0%B2%D0%BD%D1%8B%D0%B9%D0%94%D1%80%D1%83%D0%B3"
+                android:textColor="@color/colorAboutApp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

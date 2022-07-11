@@ -99,12 +99,11 @@ public class ProfilesActivity extends AppCompatActivity {
         recyclerView.setAdapter(friendAdapter);
 
 
-        if (firstStart) {
+        if (firstStart) { //ИНТРО при первом запуске + Для принудительного добавления друга при первом запуске приложения
             PreferenceManager.getDefaultSharedPreferences(this).edit()
             .putInt(PREF_KEY_PROFILE_PROGRESS, 2)
             .apply();
-            addFriend("Введите Имя друга 1", "Нажмите на три точки слева", 1);
-            addFriend("Введите Имя друга 2", "Нажмите на три точки слева", 2);
+            //addFriend("Введите Имя друга ", "Нажмите на три точки слева", 1);
             Intent intent = new Intent(this, MainIntroActivity.class);
             startActivityForResult(intent, REQUEST_CODE_INTRO);
         }
