@@ -13,6 +13,7 @@
         <activity
             android:name="com.friend.spiritualcommunication.AddReadNote"
             android:label="Заметки"
+            android:exported="false"
             android:parentActivityName="com.friend.spiritualcommunication.TextCommunication">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -21,6 +22,7 @@
         <activity
             android:name="com.friend.spiritualcommunication.SettingsActivity"
             android:label="Настройки"
+            android:exported="false"
             android:parentActivityName="com.friend.spiritualcommunication.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -29,6 +31,7 @@
         <activity
             android:name="com.friend.spiritualcommunication.AboutActivity"
             android:label="О приложении"
+            android:exported="false"
             android:parentActivityName="com.friend.spiritualcommunication.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -36,6 +39,7 @@
         </activity>
         <activity
             android:name="com.friend.spiritualcommunication.TextCommunication"
+            android:exported="false"
             android:parentActivityName="com.friend.spiritualcommunication.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -43,6 +47,7 @@
         </activity>
         <activity
             android:name="com.friend.spiritualcommunication.MainActivity"
+            android:exported="false"
             android:parentActivityName="com.friend.spiritualcommunication.ProfilesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,12 +55,15 @@
         </activity>
         <activity
             android:name="com.friend.spiritualcommunication.ProfilesActivity"
+            android:exported="false"
             android:launchMode="singleTop"></activity>
         <activity
             android:name="com.friend.spiritualcommunication.MainIntroActivity"
+            android:exported="false"
             android:theme="@style/Theme.Intro"></activity>
         <activity
             android:name="com.friend.spiritualcommunication.SplashActivity"
+            android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

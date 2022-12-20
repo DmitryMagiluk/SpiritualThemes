@@ -9,14 +9,14 @@ android {
             keyPassword '245507'
         }
     }
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.friend.spiritualcommunication"
         minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 32
+        targetSdkVersion 31
+        versionCode 35
         versionName "@string/version_app"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
