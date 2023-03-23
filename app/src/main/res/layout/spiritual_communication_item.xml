@@ -36,14 +36,14 @@
 
             <TextView
                 android:id="@+id/themeTextView"
-                android:layout_weight="9"
-                android:layout_height="70dp"
+                android:layout_weight="10"
+                android:layout_height="80dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:text="Theme"
-                android:textSize="18dp"
+                android:textSize="17dp"
                 android:textColor="@android:color/black"
-                android:layout_width="0dp" />
+                android:layout_width="0dp"/>
 
 
 
