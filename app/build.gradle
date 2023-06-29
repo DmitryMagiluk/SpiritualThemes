@@ -10,13 +10,12 @@ android {
         }
     }
     compileSdkVersion 31
-    buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.friend.spiritualcommunication"
         minSdkVersion 16
         targetSdkVersion 31
-        versionCode 39
+        versionCode 42
         versionName "@string/version_app"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -45,7 +44,7 @@ dependencies {
     //androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'androidx.preference:preference:1.1.1'
 
-    def room_version = "2.2.6"
+    def room_version = "2.4.0"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 

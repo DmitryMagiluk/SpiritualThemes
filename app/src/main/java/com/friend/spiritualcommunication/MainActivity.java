@@ -217,5 +217,15 @@ public class MainActivity extends AppCompatActivity {
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_109, Utils.THEME_109, Utils.VERSE_109, Utils.MAIN_TEXT_109));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_110, Utils.THEME_110, Utils.VERSE_110, Utils.MAIN_TEXT_110));
         spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_111, Utils.THEME_111, Utils.VERSE_111, Utils.MAIN_TEXT_111));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_112, Utils.THEME_112, Utils.VERSE_112, Utils.MAIN_TEXT_112));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_113, Utils.THEME_113, Utils.VERSE_113, Utils.MAIN_TEXT_113));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_114, Utils.THEME_114, Utils.VERSE_114, Utils.MAIN_TEXT_114));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_115, Utils.THEME_115, Utils.VERSE_115, Utils.MAIN_TEXT_115));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_116, Utils.THEME_116, Utils.VERSE_116, Utils.MAIN_TEXT_116));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_117, Utils.THEME_117, Utils.VERSE_117, Utils.MAIN_TEXT_117));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_118, Utils.THEME_118, Utils.VERSE_118, Utils.MAIN_TEXT_118));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_119, Utils.THEME_119, Utils.VERSE_119, Utils.MAIN_TEXT_119));
+        spiritualCommunicationItems.add(new SpiritualCommunicationItem(R.drawable.theme_120, Utils.THEME_120, Utils.VERSE_120, Utils.MAIN_TEXT_120));
+
     }
 }
