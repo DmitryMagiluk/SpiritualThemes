@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Spiritualommunication/app/src/main/res/drawable/ic_baseline_color_lens_24.xml" value="0.2325" />
+        <entry key="..\:/AndroidStudioProjects/Spiritualommunication/app/src/main/res/drawable/ic_baseline_format_size_24.xml" value="0.2325" />
+        <entry key="..\:/AndroidStudioProjects/Spiritualommunication/app/src/main/res/drawable/ic_baseline_local_post_office_60_read.xml" value="0.2325" />
         <entry key="..\:/AndroidStudioProjects/Spiritualommunication/app/src/main/res/layout/activity_about.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidStudioProjects/Spiritualommunication/app/src/main/res/layout/activity_add_read_note.xml" value="0.2171875" />
         <entry key="..\:/AndroidStudioProjects/Spiritualommunication/app/src/main/res/layout/activity_main.xml" value="0.2171875" />
