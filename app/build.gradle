@@ -15,7 +15,7 @@ android {
         applicationId "com.friend.spiritualcommunication"
         minSdkVersion 16
         targetSdkVersion 33
-        versionCode 46
+        versionCode 47
         versionName "@string/version_app"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -54,4 +54,6 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.1'
 
     implementation 'uk.co.samuelwall:material-tap-target-prompt:2.15.0'
+
+    implementation 'com.github.mreram:showcaseview:1.4.0' // Обучалочка при первом запуске
 }

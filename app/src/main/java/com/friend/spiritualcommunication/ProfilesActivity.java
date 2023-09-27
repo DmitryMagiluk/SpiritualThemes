@@ -34,6 +34,7 @@ import java.util.ArrayList;
 
 import Data.FriendsAppDatabase;
 import Model.Friend;
+import smartdevelop.ir.eram.showcaseviewlib.GuideView;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 
@@ -81,8 +82,10 @@ public class ProfilesActivity extends AppCompatActivity {
         final boolean firstClick = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                 .getBoolean(PREF_KEY_FIRST_CLICK, true);
 
+
         clickTextView = findViewById(R.id.clickTextView);
         if(firstClick){
+
             clickTextView.setText("Нажмите на кнопку \n  чтобы добавить друга -->");
         }
 
@@ -118,6 +121,20 @@ public class ProfilesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.titlebar);
 
+
+        /*
+        new GuideView.Builder(this)
+                .setTitle("Добавить Друга")
+                .setContentText("Нажмите на кнопку чтобы добавить друга")
+                //.setGravity(Gravity.auto) //optional
+                //.setDismissType(DismissType.anywhere) //optional - default DismissType.targetView
+                .setTargetView(fab)
+                .setContentTextSize(16)//optional
+                .setTitleTextSize(20)//optional
+                .build()
+                .show();
+
+         */
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
