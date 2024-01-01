@@ -46,7 +46,6 @@ public class ProfilesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FriendsAppDatabase friendsAppDatabase;
     private FriendAdapter friendAdapter;
-    private TextView clickTextView;
     private String bufNote = "";
 
     public final static String PROFILE_THEMES_PROGRESS = "profile_themes_progress";
@@ -57,7 +56,6 @@ public class ProfilesActivity extends AppCompatActivity {
 
     public static final String PREF_KEY_PROFILE_PROGRESS = "profile_progress_indexing";
 
-    public static final String PREF_KEY_FIRST_CLICK = "first_click";
 
     @SuppressLint({"WrongConstant", "ResourceAsColor"})
     @Override
@@ -79,15 +77,8 @@ public class ProfilesActivity extends AppCompatActivity {
 
         boolean firstStart = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean(PREF_KEY_FIRST_START, true);
-        final boolean firstClick = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-                .getBoolean(PREF_KEY_FIRST_CLICK, true);
 
 
-        clickTextView = findViewById(R.id.clickTextView);
-        if(firstClick){
-
-            clickTextView.setText("Нажмите на кнопку \n  чтобы добавить друга -->");
-        }
 
         recyclerView = findViewById(R.id.recyclerViewFriend);
         friendsAppDatabase = Room.databaseBuilder(getApplicationContext(),
@@ -115,6 +106,18 @@ public class ProfilesActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setBackgroundTintList(AppCompatResources.getColorStateList(this,R.color.green_));
 
+        if (firstStart || friends.isEmpty()){
+            new GuideView.Builder(this)
+                    .setTitle("Добавьте Друга")
+                    .setContentText("Нажмите на кнопку чтобы добавить друга")
+                    //.setGravity(Gravity.auto) //optional
+                    //.setDismissType(DismissType.anywhere) //optional - default DismissType.targetView
+                    .setTargetView(fab)
+                    .setContentTextSize(16)//optional
+                    .setTitleTextSize(20)//optional
+                    .build()
+                    .show();
+        }
         //getSupportActionBar().setTitle(R.string.title_profiles_action_bar);
         //getSupportActionBar().hide();
 
@@ -122,28 +125,9 @@ public class ProfilesActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.titlebar);
 
 
-        /*
-        new GuideView.Builder(this)
-                .setTitle("Добавить Друга")
-                .setContentText("Нажмите на кнопку чтобы добавить друга")
-                //.setGravity(Gravity.auto) //optional
-                //.setDismissType(DismissType.anywhere) //optional - default DismissType.targetView
-                .setTargetView(fab)
-                .setContentTextSize(16)//optional
-                .setTitleTextSize(20)//optional
-                .build()
-                .show();
-
-         */
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(firstClick){
-                    clickTextView.setText("");
-                    PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
-                            .putBoolean(PREF_KEY_FIRST_CLICK, false).apply();
-                }
                 fab.animate().scaleY(0).setDuration(400);
                 fab.animate().scaleX(0).setDuration(400);
                 addAndEditFriend(false, null, -1);
